@@ -7,7 +7,7 @@ const RecipeDetails = () => {
   const navigate = useNavigate();
   const recipes = useRecipeStore(state => state.recipes);
   
-  const recipe = recipes.find(r => r.id === recipeId);
+  const recipe = recipes.find(r => r.id === parseInt(recipeId));
   if (!recipe) return <p>Recipe not found.</p>;
 
   return (

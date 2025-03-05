@@ -8,7 +8,7 @@ const EditRecipeForm = () => {
   const recipes = useRecipeStore(state => state.recipes);
   const updateRecipe = useRecipeStore(state => state.updateRecipe);
   
-  const recipe = recipes.find(r => r.id === recipeId);
+  const recipe = recipes.find(r => r.id === parseInt(recipeId));
   if (!recipe) return <p>Recipe not found.</p>;
 
   const [title, setTitle] = useState(recipe.title);
@@ -16,7 +16,7 @@ const EditRecipeForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    updateRecipe({ id: recipeId, title, description });
+    updateRecipe({ id: parseInt(recipeId), title, description });
     navigate(`/recipe/${recipeId}`);
   };
 

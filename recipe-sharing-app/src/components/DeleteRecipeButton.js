@@ -6,8 +6,8 @@ const DeleteRecipeButton = ({ recipeId }) => {
   const navigate = useNavigate();
 
   const handleDelete = () => {
-    deleteRecipe(recipeId);
-    navigate('/'); // Redirect to home after deletion
+    deleteRecipe(parseInt(recipeId));
+    navigate('/');
   };
 
   return <button onClick={handleDelete}>Delete</button>;
